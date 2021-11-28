@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const { Genre } = require("../models/genre");
 const { validateId } = require("../utils/functions");
 const { Movie, validate } = require("../models/movie");
@@ -80,7 +81,7 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id", [auth, admin], async (req, res) => {
   try {
     const { id } = req.params;
 
