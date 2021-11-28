@@ -2,7 +2,6 @@ const Joi = require("joi");
 const Fawn = require("fawn");
 const cors = require("cors");
 const config = require("config");
-const winston = require("winston");
 const express = require("express");
 const mongoose = require("mongoose");
 
